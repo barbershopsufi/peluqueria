@@ -1,0 +1,24 @@
+/* CSS PRIMER VERSIÓN (Sencillo y limpio) */
+body { 
+    font-family: sans-serif; 
+    text-align: center;
+    background-color: rgb(226, 226, 226); 
+}
+
+.galeria { 
+    display: flex; 
+    gap: 10px; 
+    justify-content: center; 
+    margin-bottom: 20px;
+}
+
+img { 
+    width: 200px; 
+    border-radius: 10px; 
+    object-fit: cover;
+}
+
+#calendly-embed {
+    min-width: 320px;
+    height: 630px;
+}
