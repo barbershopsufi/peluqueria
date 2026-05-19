@@ -1,15 +1,27 @@
-/* CSS PRIMER VERSIÓN (Sencillo y limpio) */
+/* CSS ACTUALIZADO CON SELECTOR DE PELUQUEROS */
 body { 
-    font-family: sans-serif; 
+    font-family: 'Inter', sans-serif; 
     text-align: center;
     background-color: rgb(226, 226, 226); 
+    margin: 0;
+    padding: 20px;
 }
 
+header {
+    margin-bottom: 30px;
+}
+
+h1 {
+    margin-bottom: 5px;
+    font-weight: 700;
+}
+
+/* Galería de imágenes */
 .galeria { 
     display: flex; 
     gap: 10px; 
     justify-content: center; 
-    margin-bottom: 20px;
+    margin-bottom: 30px;
 }
 
 img { 
@@ -18,7 +30,48 @@ img {
     object-fit: cover;
 }
 
-#calendly-embed {
+/* --- NUEVOS ESTILOS PARA LOS BOTONES DE PELUQUEROS --- */
+.barber-selector {
+    display: flex; 
+    gap: 12px; 
+    justify-content: center; 
+    margin: 20px 0 30px 0;
+}
+
+.barber-btn {
+    background-color: #ffffff; /* Botones blancos para resaltar sobre el fondo gris */
+    color: #333333;
+    border: 2px solid #b5b5b5;
+    padding: 12px 28px;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+/* Efecto al pasar el ratón por encima */
+.barber-btn:hover {
+    border-color: #333333;
+    background-color: #f5f5f5;
+}
+
+/* Estilo del peluquero que está seleccionado actualmente */
+.barber-btn.active {
+    background-color: #333333; /* Fondo oscuro para el seleccionado */
+    color: #ffffff;            /* Texto blanco */
+    border-color: #333333;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+/* Contenedor del calendario de Calendly */
+#contenedor-calendario {
     min-width: 320px;
-    height: 630px;
+    height: 700px;
+    background-color: #ffffff; /* Fondo blanco para el recuadro del calendario */
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
 }

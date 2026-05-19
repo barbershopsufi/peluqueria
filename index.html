@@ -6,6 +6,7 @@
     <title>Peluquería - Reservas Online</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="index.css">
+    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
@@ -15,27 +16,51 @@
     </header>
 
     <div class="booking-container">
-        <h2 style="text-align: center;">Reserva tu Cita</h2>
+        <h2 style="text-align: center;">1. Elige tu Peluquero</h2>
         
-        <!-- INICIO WIDGET CALENDLY -->
-        <!-- CONTENEDOR DEL CALENDARIO -->
-<div id="reserva-directa" style="margin-top: 20px;">
-    <!-- Widget de Calendly -->
-    <!-- He añadido '?hide_event_type_details=1' para que vaya directo al grano -->
-    <div class="calendly-inline-widget" 
-         data-url="https://calendly.com/dotfrasesc/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
-         style="min-width:320px; height:750px;">
-    </div>
-    
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+        <div class="barber-selector" style="display: flex; gap: 10px; justify-content: center; margin: 20px 0;">
+    <button class="barber-btn active" onclick="cambiarBarbero('https://calendly.com/dotfrasesc/30min', this)">Sufi</button>
+    <button class="barber-btn" onclick="cambiarBarbero('https://calendly.com/dotfrasesc/corte-con-carlos', this)">Carlos</button>
+    <button class="barber-btn" onclick="cambiarBarbero('https://calendly.com/dotfrasesc/corte-con-juan', this)">Juan</button>
 </div>
-<!-- FIN DEL CALENDARIO -->
+
+        <h2 style="text-align: center; margin-top: 30px;">2. Reserva tu Cita</h2>
+        
+        <div id="contenedor-calendario" style="margin-top: 20px;">
+            <div id="calendly-widget" class="calendly-inline-widget" 
+                 data-url="https://calendly.com/dotfrasesc/30min?hide_event_type_details=1&hide_gdpr_banner=1" 
+                 style="min-width:320px; height:700px;">
+            </div>
+        </div>
         
     </div>
 
     <footer>
-        &copy; 2024 Barber Shop Sufi
+        &copy; 2026 Barber Shop Sufi
     </footer>
+
+    <script>
+        function cambiarBarbero(urlCalendly, botonActivo) {
+            // 1. Quitar la clase 'active' de todos los botones
+            const botones = document.querySelectorAll('.barber-btn');
+            botones.forEach(btn => btn.classList.remove('active'));
+            
+            // 2. Ponerle la clase 'active' al botón que se ha pulsado
+            botonActivo.classList.add('active');
+
+            // 3. Limpiar el contenedor viejo y meter el nuevo calendario
+            const contenedor = document.getElementById('contenedor-calendario');
+            contenedor.innerHTML = `
+                <div class="calendly-inline-widget" 
+                     data-url="${urlCalendly}?hide_event_type_details=1&hide_gdpr_banner=1" 
+                     style="min-width:320px; height:700px;">
+                </div>
+            `;
+
+            // 4. Decirle a Calendly que vuelva a cargar el diseño
+            Calendly.initInlineWidgets();
+        }
+    </script>
 
 </body>
 </html>
