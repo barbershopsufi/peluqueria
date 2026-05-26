@@ -1,77 +1,83 @@
-/* CSS ACTUALIZADO CON SELECTOR DE PELUQUEROS */
-body { 
-    font-family: 'Inter', sans-serif; 
-    text-align: center;
-    background-color: rgb(226, 226, 226); 
-    margin: 0;
-    padding: 20px;
-}
+        /* CONFIGURACIÓN DE COLORES ACORDES AL LOGO */
+        :root {
+            --color-fondo: #e5dfd5; /* El tono crema elegante del fondo del logo */
+            --color-tarjeta: #ffffff;
+            --color-texto-principal: #111111;
+            --color-texto-secundario: #555555;
+        }
 
-header {
-    margin-bottom: 30px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-h1 {
-    margin-bottom: 5px;
-    font-weight: 700;
-}
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--color-fondo);
+            color: var(--color-texto-principal);
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
 
-/* Galería de imágenes */
-.galeria { 
-    display: flex; 
-    gap: 10px; 
-    justify-content: center; 
-    margin-bottom: 30px;
-}
+        /* CABECERA CON EL LOGO TOP */
+        header {
+            text-align: center;
+            padding: 30px 20px 10px 20px;
+        }
 
-img { 
-    width: 200px; 
-    border-radius: 10px; 
-    object-fit: cover;
-}
+        .logo-barberia {
+            max-height: 120px; /* Tamaño controlado para que quede fino */
+            width: auto;
+            margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
 
-/* --- NUEVOS ESTILOS PARA LOS BOTONES DE PELUQUEROS --- */
-.barber-selector {
-    display: flex; 
-    gap: 12px; 
-    justify-content: center; 
-    margin: 20px 0 30px 0;
-}
+        header h1 {
+            font-size: 1.8rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
 
-.barber-btn {
-    background-color: #ffffff; /* Botones blancos para resaltar sobre el fondo gris */
-    color: #333333;
-    border: 2px solid #b5b5b5;
-    padding: 12px 28px;
-    font-size: 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
+        header p {
+            font-size: 1rem;
+            color: var(--color-texto-secundario);
+        }
 
-/* Efecto al pasar el ratón por encima */
-.barber-btn:hover {
-    border-color: #333333;
-    background-color: #f5f5f5;
-}
+        /* CONTENEDOR DEL CALENDARIO */
+        .booking-container {
+            background-color: var(--color-tarjeta);
+            max-width: 850px;
+            width: 90%;
+            margin: 20px auto;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+            flex-grow: 1;
+        }
 
-/* Estilo del peluquero que está seleccionado actualmente */
-.barber-btn.active {
-    background-color: #333333; /* Fondo oscuro para el seleccionado */
-    color: #ffffff;            /* Texto blanco */
-    border-color: #333333;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
-}
+        .booking-container h2 {
+            text-align: center;
+            font-size: 1.4rem;
+            margin-bottom: 8px;
+        }
 
-/* Contenedor del calendario de Calendly */
-#contenedor-calendario {
-    min-width: 320px;
-    height: 700px;
-    background-color: #ffffff; /* Fondo blanco para el recuadro del calendario */
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 10px;
-}
+        .booking-container .instruction {
+            text-align: center;
+            color: var(--color-texto-secundario);
+            font-size: 0.95rem;
+            margin-bottom: 25px;
+        }
+
+        /* PIE DE PÁGINA */
+        footer {
+            text-align: center;
+            padding: 20px;
+            font-size: 0.85rem;
+            color: var(--color-texto-secundario);
+            margin-top: auto;
+        }
