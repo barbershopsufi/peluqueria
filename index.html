@@ -4,77 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sufi Barber Shop - Reservas Online</title>
-    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="index.css">
-    
-    <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
-    <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
-    <header>
-        <img src="logo.png" alt="Sufi Barber Shop Logo" class="logo-barberia">
-        <h1>SUFI BARBER SHOP</h1>
-        <p>Cortes modernos & Estilo personalizado</p>
-    </header>
+    <div class="navbar-fija">
+        <header>
+            <img src="Sufi Barber Shop - Reservas Online.jpg" alt="Sufi Barber Shop Logo" class="logo-barberia">
+            <h1>SUFI BARBER SHOP</h1>
+            <p>Cortes modernos & Estilo personalizado</p>
+        </header>
+    </div>
 
-    <div class="main-content">
-        
-        <div class="card-panel">
+    <main class="main-content">
+
+        <section class="card-panel">
             <h2>Nuestras Tarifas</h2>
             <table class="precios-tabla">
                 <tr>
-                    <td><span class="servicio-nombre">Corte simple</span></td>
+                    <td>Corte simple</td>
                     <td class="servicio-precio">10€</td>
                 </tr>
                 <tr>
-                    <td><span class="servicio-nombre">Corte degradado</span></td>
+                    <td>Corte degradado</td>
                     <td class="servicio-precio">12€</td>
                 </tr>
                 <tr>
-                    <td><span class="servicio-nombre">Corte simple + Lavado</span></td>
+                    <td>Corte de pelo + Lavado</td>
                     <td class="servicio-precio">12€</td>
                 </tr>
                 <tr>
-                    <td>
-                        <span class="servicio-nombre">Barba</span>
-                        <span class="servicio-nota">Sin hora previa</span>
-                    </td>
-                    <td class="servicio-precio">6€</td>
-                </tr>
-                <tr>
-                    <td><span class="servicio-nombre">Corte de pelo + barba</span></td>
+                    <td>Corte de pelo + Barba</td>
                     <td class="servicio-precio">15€</td>
                 </tr>
                 <tr>
+                    <td>Barba <span class="servicio-nota">Sin hora previa</span></td>
+                    <td class="servicio-precio">6€</td>
+                </tr>
                 <tr>
-                    <td>
-                        <span class="servicio-nombre">Cejas a navaja</span>
-                        <span class="servicio-nota">Sin hora previa</span>
-                    </td>
+                    <td>Cejas a navaja <span class="servicio-nota">Sin hora previa</span></td>
                     <td class="servicio-precio">3€</td>
                 </tr>
             </table>
-        </div>
+        </section>
 
-        <div class="card-panel">
+        <section class="card-panel">
             <h2>Reserva tu Cita</h2>
+            
+            <p class="instruction" style="color: #e5dfd5; font-weight: 600; border-bottom: 1px dashed rgba(255,255,255,0.15); padding-bottom: 15px; margin-bottom: 15px;">
+                ⚠️ Para cortarse el pelo con otros barberos, por favor llama directamente al <a href="tel:+34632014385" style="color: #ffffff; text-decoration: underline; font-weight: 700;">632 01 43 85</a>
+            </p>
+            
             <p class="instruction">Selecciona el día y la hora para tu corte. En el siguiente paso podrás elegir tu barbero habitual.</p>
             
-            <div id="contenedor-calendario" style="min-width:320px; height:680px;">
-                <div class="calendly-inline-widget" 
-                     data-url="https://calendly.com/sufibarbershop/reserva-tu-cita-barber-shop-sufi?hide_event_type_details=1&hide_gdpr_banner=1" 
-                     style="min-width:320px; height:680px;">
-                </div>
-            </div>
-        </div>
-        
-    </div>
+            <div class="calendly-inline-widget" data-url="https://calendly.com/sufibarbershop/reserva-tu-cita-barber-shop-sufi-1" style="min-width:320px;height:700px;"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            </section>
+
+    </main>
 
     <footer>
-        &copy; 2026 SUFI BARBER SHOP - Todos los derechos reservados.
+        <p>&copy; 2026 SUFI BARBER SHOP - Todos los derechos reservados.</p>
     </footer>
 
 </body>
