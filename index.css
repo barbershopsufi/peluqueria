@@ -1,25 +1,21 @@
-/* ==========================================================================
-   1. RESET DE MÁRGENES (Elimina cualquier borde blanco en los extremos)
-   ========================================================================== */
+/* ELIMINA CUALQUIER MARGEN OCULTO DEL NAVEGADOR */
 html, body {
-    margin: 0;
-    padding: 0;
+    margin: 0 !important;
+    padding: 0 !important;
     width: 100%;
     min-height: 100vh;
 }
 
 body {
     font-family: 'Inter', sans-serif;
-    color: #ffffff; /* Texto blanco principal */
+    color: #ffffff;
     display: flex;
     flex-direction: column;
     position: relative;
-    overflow-x: hidden; /* Evita el balanceo lateral en móviles */
+    overflow-x: hidden;
 }
 
-/* ==========================================================================
-   2. CAPA DE FONDO (Foto del local fija y adaptada a PC y Móvil)
-   ========================================================================== */
+/* LA FOTO OCUPA EL 100% REAL DE LA PANTALLA DE PUNTA A PUNTA */
 body::before {
     content: "";
     position: fixed;
@@ -27,52 +23,42 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Se queda siempre detrás de todo */
-    
-    /* Imagen de fondo con capa oscura (75% de negro) para que el texto resalte */
+    z-index: -1;
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('backgroundimage.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-/* ==========================================================================
-   3. BARRA SUPERIOR FIJA Y TRANSLÚCIDA (Efecto cristal blur)
-   ========================================================================== */
+/* CABECERA NORMAL (SE MUEVE CON LA PÁGINA, SIN MÁRGENES BLANCOS) */
 .navbar-fija {
-    position: sticky;
-    top: 0;
-    left: 0;
     width: 100%;
-    z-index: 100; /* Asegura que pase por encima del calendario al deslizar */
-    margin: 0;
-    
-    /* Fondo oscuro muy transparente + difuminado de fondo */
+    margin: 0 !important;
+    padding: 0 !important;
     background-color: rgba(15, 15, 15, 0.6); 
     backdrop-filter: blur(12px); 
-    -webkit-backdrop-filter: blur(12px); /* Compatibilidad total con iPhones */
-    
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Línea inferior fina y sutil */
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 header {
     text-align: center;
-    padding: 15px 20px;
+    padding: 20px;
     max-width: 850px;
-    margin: 0 auto;
+    margin: 0 auto !important;
 }
 
 .logo-barberia {
-    max-height: 65px; 
+    max-height: 80px;
     width: auto;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
 header h1 {
-    font-size: 1.3rem;
+    font-size: 1.5rem;
     letter-spacing: 2px;
     font-weight: 700;
     margin-bottom: 2px;
@@ -80,22 +66,22 @@ header h1 {
 }
 
 header p {
-    font-size: 0.85rem;
+    font-size: 0.9rem;
     color: #cccccc;
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
-/* ==========================================================================
-   4. CONTENEDOR PRINCIPAL Y PANELES TRANSLÚCIDOS (Precios y Calendario)
-   ========================================================================== */
+/* CONTENEDOR PRINCIPAL SIN ENPUJAR MÁRGENES EXTRAÑOS */
 .main-content {
     max-width: 850px;
     width: 90%;
-    margin: 20px auto 30px auto; /* Separación prudente de la barra superior */
+    margin: 20px auto !important; /* Margen controlado solo para separar de la cabecera */
+    padding: 0;
 }
 
+/* PANELES DE PRECIOS Y CALENDARIO */
 .card-panel {
-    background-color: rgba(20, 20, 20, 0.85); /* Fondo asfalto oscuro con transparencia */
+    background-color: rgba(20, 20, 20, 0.85); 
     backdrop-filter: blur(5px);
     border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 25px;
@@ -110,16 +96,14 @@ header p {
     margin-bottom: 20px;
     letter-spacing: 1px;
     font-weight: 600;
-    position: relative;
 }
 
-/* Línea decorativa color crema debajo de los títulos */
 .card-panel h2::after {
     content: '';
     display: block;
     width: 40px;
     height: 2px;
-    background-color: #e5dfd5; /* Tono crema del logo */
+    background-color: #e5dfd5;
     margin: 8px auto 0 auto;
 }
 
@@ -130,16 +114,14 @@ header p {
     margin-bottom: 25px;
 }
 
-/* ==========================================================================
-   5. DISEÑO DE LA TABLA DE PRECIOS
-   ========================================================================== */
+/* TABLA DE PRECIOS */
 .precios-tabla {
     width: 100%;
     border-collapse: collapse;
 }
 
 .precios-tabla tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Separador sutil entre servicios */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .precios-tabla tr:last-child {
@@ -151,40 +133,29 @@ header p {
     font-size: 1.05rem;
 }
 
-.servicio-nombre {
-    font-weight: 400;
-}
-
-/* Etiqueta "Sin hora previa" */
 .servicio-nota {
     display: inline-block;
     font-size: 0.75rem;
-    background-color: rgba(229, 223, 213, 0.15); /* Fondo crema suave */
-    color: #e5dfd5; /* Texto crema nítido */
+    background-color: rgba(229, 223, 213, 0.15);
+    color: #e5dfd5;
     padding: 2px 8px;
     border-radius: 4px;
     margin-left: 8px;
-    vertical-align: middle;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
 }
 
 .servicio-precio {
     text-align: right;
     font-weight: 700;
-    color: #e5dfd5; /* El precio destaca en el color crema del logo */
+    color: #e5dfd5;
     font-size: 1.1rem;
 }
 
-/* ==========================================================================
-   6. PIE DE PÁGINA (Footer)
-   ========================================================================== */
 footer {
     text-align: center;
     padding: 20px;
     font-size: 0.85rem;
     color: #888888;
     margin-top: auto;
-    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
 }
