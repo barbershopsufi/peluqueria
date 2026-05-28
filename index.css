@@ -1,83 +1,143 @@
-        /* CONFIGURACIÓN DE COLORES ACORDES AL LOGO */
-        :root {
-            --color-fondo: #e5dfd5; /* El tono crema elegante del fondo del logo */
-            --color-tarjeta: #ffffff;
-            --color-texto-principal: #111111;
-            --color-texto-secundario: #555555;
-        }
+/* CONFIGURACIÓN DEL FONDO OSCURO CON LA FOTO DEL LOCAL */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff; /* Texto blanco para que resalte sobre lo oscuro */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    
+    /* Ponemos la foto fija de fondo */
+    background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('backgroundimage.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* CABECERA CON EL LOGO */
+header {
+    text-align: center;
+    padding: 30px 20px 10px 20px;
+}
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--color-fondo);
-            color: var(--color-texto-principal);
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
+.logo-barberia {
+    max-height: 110px; /* Tamaño controlado para que quede fino */
+    width: auto;
+    margin-bottom: 12px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 
-        /* CABECERA CON EL LOGO TOP */
-        header {
-            text-align: center;
-            padding: 30px 20px 10px 20px;
-        }
+header h1 {
+    font-size: 1.8rem;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.6);
+}
 
-        .logo-barberia {
-            max-height: 120px; /* Tamaño controlado para que quede fino */
-            width: auto;
-            margin-bottom: 10px;
-            display: block;
-            margin-left: auto;
-            margin-right: auto;
-        }
+header p {
+    font-size: 1rem;
+    color: #cccccc;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.6);
+}
 
-        header h1 {
-            font-size: 1.8rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-            margin-bottom: 5px;
-        }
+/* CONTENEDOR PRINCIPAL (Para centrar los bloques) */
+.main-content {
+    max-width: 850px;
+    width: 90%;
+    margin: 10px auto 30px auto;
+}
 
-        header p {
-            font-size: 1rem;
-            color: var(--color-texto-secundario);
-        }
+/* BLOQUES TRANSLÚCIDOS (Precios y Calendario) */
+.card-panel {
+    background-color: rgba(20, 20, 20, 0.85); /* Negro asfalto con transparencia */
+    backdrop-filter: blur(5px); /* Efecto cristal esmerilado detrás */
+    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde fino elegante */
+    padding: 25px;
+    border-radius: 16px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    margin-bottom: 25px;
+}
 
-        /* CONTENEDOR DEL CALENDARIO */
-        .booking-container {
-            background-color: var(--color-tarjeta);
-            max-width: 850px;
-            width: 90%;
-            margin: 20px auto;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
-            flex-grow: 1;
-        }
+.card-panel h2 {
+    text-align: center;
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    letter-spacing: 1px;
+    font-weight: 600;
+    position: relative;
+}
 
-        .booking-container h2 {
-            text-align: center;
-            font-size: 1.4rem;
-            margin-bottom: 8px;
-        }
+.card-panel h2::after {
+    content: '';
+    display: block;
+    width: 40px;
+    height: 2px;
+    background-color: #e5dfd5; /* El color crema del logo para detalles */
+    margin: 8px auto 0 auto;
+}
 
-        .booking-container .instruction {
-            text-align: center;
-            color: var(--color-texto-secundario);
-            font-size: 0.95rem;
-            margin-bottom: 25px;
-        }
+.instruction {
+    text-align: center;
+    color: #aaaaaa;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
 
-        /* PIE DE PÁGINA */
-        footer {
-            text-align: center;
-            padding: 20px;
-            font-size: 0.85rem;
-            color: var(--color-texto-secundario);
-            margin-top: auto;
-        }
+/* TABLA DE PRECIOS */
+.precios-tabla {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.precios-tabla tr {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.precios-tabla tr:last-child {
+    border-bottom: none;
+}
+
+.precios-tabla td {
+    padding: 14px 10px;
+    font-size: 1.05rem;
+}
+
+.servicio-nombre {
+    font-weight: 400;
+}
+
+.servicio-nota {
+    display: inline-block;
+    font-size: 0.75rem;
+    background-color: rgba(229, 223, 213, 0.15);
+    color: #e5dfd5;
+    padding: 2px 8px;
+    border-radius: 4px;
+    margin-left: 8px;
+    vertical-align: middle;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.servicio-precio {
+    text-align: right;
+    font-weight: 700;
+    color: #e5dfd5; /* Precio resaltado en color crema */
+    font-size: 1.1rem;
+}
+
+/* PIE DE PÁGINA */
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.85rem;
+    color: #888888;
+    margin-top: auto;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+}

@@ -4,26 +4,65 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sufi Barber Shop - Reservas Online</title>
+    
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="index.css">
+    
     <link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
     <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
-    <link rel="stylesheet" href="index.css">
 </head>
 <body>
 
     <header>
-        <img src="logo.jpg" alt="Sufi Barber Shop Logo" class="logo-barberia">
+        <img src="logo.png" alt="Sufi Barber Shop Logo" class="logo-barberia">
         <h1>SUFI BARBER SHOP</h1>
+        <p>Cortes modernos & Estilo personalizado</p>
     </header>
 
-    <div class="booking-container">
-        <h2>Reserva tu Cita</h2>
-        <p class="instruction">Selecciona el día y la hora. En el siguiente paso podrás elegir si te corta Sufi o Abdel.</p>
+    <div class="main-content">
         
-        <div id="contenedor-calendario" style="min-width:320px; height:680px;">
-            <div class="calendly-inline-widget" 
-                 data-url="https://calendly.com/sufibarbershop/reserva-tu-cita-barber-shop-sufi?hide_event_type_details=1&hide_gdpr_banner=1" 
-                 style="min-width:320px; height:680px;">
+        <div class="card-panel">
+            <h2>Nuestras Tarifas</h2>
+            <table class="precios-tabla">
+                <tr>
+                    <td><span class="servicio-nombre">Corte simple</span></td>
+                    <td class="servicio-precio">10€</td>
+                </tr>
+                <tr>
+                    <td><span class="servicio-nombre">Corte degradado</span></td>
+                    <td class="servicio-precio">12€</td>
+                </tr>
+                <tr>
+                    <td><span class="servicio-nombre">Corte de pelo + Lavado</span></td>
+                    <td class="servicio-precio">12€</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="servicio-nombre">Barba</span>
+                        <span class="servicio-nota">Sin hora previa</span>
+                    </td>
+                    <td class="servicio-precio">6€</td>
+                </tr>
+                <tr>
+                    <td>
+                        <span class="servicio-nombre">Cejas a navaja</span>
+                        <span class="servicio-nota">Sin hora previa</span>
+                    </td>
+                    <td class="servicio-precio">3€</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="card-panel">
+            <h2>Reserva tu Cita</h2>
+            <p class="instruction">Selecciona el día y la hora para tu corte. En el siguiente paso podrás elegir tu barbero habitual.</p>
+            
+            <div id="contenedor-calendario" style="min-width:320px; height:680px;">
+                <div class="calendly-inline-widget" 
+                     data-url="https://calendly.com/sufibarbershop/reserva-tu-cita-barber-shop-sufi?hide_event_type_details=1&hide_gdpr_banner=1" 
+                     style="min-width:320px; height:680px;">
+                </div>
             </div>
         </div>
         
