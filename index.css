@@ -1,19 +1,30 @@
-/* CONFIGURACIÓN DEL FONDO OSCURO CON LA FOTO DEL LOCAL */
+/* AJUSTE PARA EL CUERPO DE LA WEB */
 body {
     font-family: 'Inter', sans-serif;
-    color: #ffffff; /* Texto blanco para que resalte sobre lo oscuro */
+    color: #ffffff;
     margin: 0;
     padding: 0;
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    position: relative;
+}
+
+/* CAPA DE FONDO EN PC Y MÓVIL (EVITA EL ERROR DEL FONDO FIJO) */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1; /* Se queda al fondo de todo */
     
-    /* Ponemos la foto fija de fondo */
+    /* Tu foto con el filtro oscuro */
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('backgroundimage.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center center;
     background-repeat: no-repeat;
-    background-attachment: fixed;
 }
 
 /* CABECERA CON EL LOGO */
