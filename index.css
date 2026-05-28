@@ -1,16 +1,25 @@
-/* AJUSTE PARA EL CUERPO DE LA WEB */
-body {
-    font-family: 'Inter', sans-serif;
-    color: #ffffff;
+/* ==========================================================================
+   1. RESET DE MÁRGENES (Elimina cualquier borde blanco en los extremos)
+   ========================================================================== */
+html, body {
     margin: 0;
     padding: 0;
-    display: flex;
-    flex-direction: column;
+    width: 100%;
     min-height: 100vh;
-    position: relative;
 }
 
-/* CAPA DE FONDO EN PC Y MÓVIL (EVITA EL ERROR DEL FONDO FIJO) */
+body {
+    font-family: 'Inter', sans-serif;
+    color: #ffffff; /* Texto blanco principal */
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    overflow-x: hidden; /* Evita el balanceo lateral en móviles */
+}
+
+/* ==========================================================================
+   2. CAPA DE FONDO (Foto del local fija y adaptada a PC y Móvil)
+   ========================================================================== */
 body::before {
     content: "";
     position: fixed;
@@ -18,56 +27,77 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -1; /* Se queda al fondo de todo */
+    z-index: -1; /* Se queda siempre detrás de todo */
     
-    /* Tu foto con el filtro oscuro */
+    /* Imagen de fondo con capa oscura (75% de negro) para que el texto resalte */
     background-image: linear-gradient(rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0.75)), url('backgroundimage.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
 }
 
-/* CABECERA CON EL LOGO */
+/* ==========================================================================
+   3. BARRA SUPERIOR FIJA Y TRANSLÚCIDA (Efecto cristal blur)
+   ========================================================================== */
+.navbar-fija {
+    position: sticky;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 100; /* Asegura que pase por encima del calendario al deslizar */
+    margin: 0;
+    
+    /* Fondo oscuro muy transparente + difuminado de fondo */
+    background-color: rgba(15, 15, 15, 0.6); 
+    backdrop-filter: blur(12px); 
+    -webkit-backdrop-filter: blur(12px); /* Compatibilidad total con iPhones */
+    
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Línea inferior fina y sutil */
+}
+
 header {
     text-align: center;
-    padding: 30px 20px 10px 20px;
+    padding: 15px 20px;
+    max-width: 850px;
+    margin: 0 auto;
 }
 
 .logo-barberia {
-    max-height: 110px; /* Tamaño controlado para que quede fino */
+    max-height: 65px; 
     width: auto;
-    margin-bottom: 12px;
+    margin-bottom: 5px;
     display: block;
     margin-left: auto;
     margin-right: auto;
 }
 
 header h1 {
-    font-size: 1.8rem;
+    font-size: 1.3rem;
     letter-spacing: 2px;
     font-weight: 700;
-    margin-bottom: 5px;
+    margin-bottom: 2px;
     text-shadow: 0 2px 4px rgba(0,0,0,0.6);
 }
 
 header p {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: #cccccc;
     text-shadow: 0 1px 3px rgba(0,0,0,0.6);
 }
 
-/* CONTENEDOR PRINCIPAL (Para centrar los bloques) */
+/* ==========================================================================
+   4. CONTENEDOR PRINCIPAL Y PANELES TRANSLÚCIDOS (Precios y Calendario)
+   ========================================================================== */
 .main-content {
     max-width: 850px;
     width: 90%;
-    margin: 10px auto 30px auto;
+    margin: 20px auto 30px auto; /* Separación prudente de la barra superior */
 }
 
-/* BLOQUES TRANSLÚCIDOS (Precios y Calendario) */
 .card-panel {
-    background-color: rgba(20, 20, 20, 0.85); /* Negro asfalto con transparencia */
-    backdrop-filter: blur(5px); /* Efecto cristal esmerilado detrás */
-    border: 1px solid rgba(255, 255, 255, 0.1); /* Borde fino elegante */
+    background-color: rgba(20, 20, 20, 0.85); /* Fondo asfalto oscuro con transparencia */
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
     padding: 25px;
     border-radius: 16px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
@@ -83,12 +113,13 @@ header p {
     position: relative;
 }
 
+/* Línea decorativa color crema debajo de los títulos */
 .card-panel h2::after {
     content: '';
     display: block;
     width: 40px;
     height: 2px;
-    background-color: #e5dfd5; /* El color crema del logo para detalles */
+    background-color: #e5dfd5; /* Tono crema del logo */
     margin: 8px auto 0 auto;
 }
 
@@ -99,14 +130,16 @@ header p {
     margin-bottom: 25px;
 }
 
-/* TABLA DE PRECIOS */
+/* ==========================================================================
+   5. DISEÑO DE LA TABLA DE PRECIOS
+   ========================================================================== */
 .precios-tabla {
     width: 100%;
     border-collapse: collapse;
 }
 
 .precios-tabla tr {
-    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08); /* Separador sutil entre servicios */
 }
 
 .precios-tabla tr:last-child {
@@ -122,11 +155,12 @@ header p {
     font-weight: 400;
 }
 
+/* Etiqueta "Sin hora previa" */
 .servicio-nota {
     display: inline-block;
     font-size: 0.75rem;
-    background-color: rgba(229, 223, 213, 0.15);
-    color: #e5dfd5;
+    background-color: rgba(229, 223, 213, 0.15); /* Fondo crema suave */
+    color: #e5dfd5; /* Texto crema nítido */
     padding: 2px 8px;
     border-radius: 4px;
     margin-left: 8px;
@@ -139,11 +173,13 @@ header p {
 .servicio-precio {
     text-align: right;
     font-weight: 700;
-    color: #e5dfd5; /* Precio resaltado en color crema */
+    color: #e5dfd5; /* El precio destaca en el color crema del logo */
     font-size: 1.1rem;
 }
 
-/* PIE DE PÁGINA */
+/* ==========================================================================
+   6. PIE DE PÁGINA (Footer)
+   ========================================================================== */
 footer {
     text-align: center;
     padding: 20px;
